@@ -1,0 +1,24 @@
+{
+  "bpm": 116.0,
+  "beatSec": 0.517241,
+  "meter": 4,
+  "barSec": 2.068966,
+  "bar1": 0.033,
+  "duration": 174.17,
+  "note": "bar n starts at bar1 + (n-1)*barSec. Tempo measured by tools/beatgrid.py (115.998, drift within +-11 ms over the song). Bar phase chosen from section boundaries in tools/beat_loud.py (loudness changes at beats 28, 72, 108, 136, 184, 236, 280, 316, all multiples of 4), not from the bass estimate in beatgrid.py, which pointed one beat later.",
+  "sections": [
+    { "id": "A", "bars": [1, 7], "name": "开幕" },
+    { "id": "B", "bars": [8, 15], "name": "主歌" },
+    { "id": "C", "bars": [16, 18], "name": "Dance for me" },
+    { "id": "D", "bars": [19, 27], "name": "副歌一" },
+    { "id": "E", "bars": [28, 34], "name": "自由" },
+    { "id": "F", "bars": [35, 43], "name": "下坠" },
+    { "id": "G", "bars": [44, 50], "name": "工坊" },
+    { "id": "H", "bars": [51, 51], "name": "觉醒" },
+    { "id": "I", "bars": [52, 59], "name": "副歌二" },
+    { "id": "J", "bars": [60, 66], "name": "余波" },
+    { "id": "K", "bars": [67, 68], "name": "连线" },
+    { "id": "L", "bars": [69, 70], "name": "睁眼" },
+    { "id": "M", "bars": [71, 83], "name": "尾声" }
+  ]
+}

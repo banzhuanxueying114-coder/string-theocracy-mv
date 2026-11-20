@@ -1,0 +1,22 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>fonts</title>
+<style>html,body{margin:0;background:#0d0b0a}canvas{display:block}</style>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script>
+const g = document.getElementById('c').getContext('2d');
+g.fillStyle = '#0d0b0a'; g.fillRect(0, 0, 1920, 1080);
+const hand = ['Vladimir Script', 'Edwardian Script ITC', 'Kunstler Script', 'Mistral', 'Ink Free', 'Lucida Handwriting', 'Freestyle Script', 'Segoe Script', 'Viner Hand ITC', 'Monotype Corsiva', 'Gabriola', 'Brush Script MT'];
+const print = ['Garamond', 'Baskerville Old Face', 'Bodoni MT', 'Centaur', 'Palatino Linotype', 'Old English Text MT'];
+Promise.all([...hand, ...print].map((f) => document.fonts.load(`40px "${f}"`))).then(() => {
+  hand.forEach((f, i) => {
+    g.font = `52px "${f}"`; g.fillStyle = '#d9692b'; g.fillText("Cut it off, you've already lost", 40, 70 + i * 84);
+    g.font = '16px Consolas'; g.fillStyle = '#777'; g.fillText(f, 40, 92 + i * 84);
+  });
+  print.forEach((f, i) => {
+    g.font = `44px "${f}"`; g.fillStyle = '#c9a257'; g.fillText('DANCE FOR ME  How does it feel to be free?', 900, 70 + i * 84);
+    g.font = '16px Consolas'; g.fillStyle = '#777'; g.fillText(f, 900, 92 + i * 84);
+  });
+  document.title = 'ready';
+});
+</script>

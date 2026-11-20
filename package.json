@@ -1,0 +1,10 @@
+{
+  "name": "string-theocracy-mv",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "render:section": "node tools/render.mjs --segment",
+    "render:full": "node tools/render.mjs --full"
+  }
+}

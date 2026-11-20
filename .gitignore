@@ -1,0 +1,8 @@
+out/
+node_modules/
+__pycache__/
+*.mp4
+*.mp3
+*.lrc
+.DS_Store
+push.log

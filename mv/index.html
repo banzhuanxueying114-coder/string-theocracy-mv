@@ -1,0 +1,30 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>String Theocracy</title>
+<style>html,body{margin:0;background:#000;overflow:hidden}canvas{display:block}</style>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script type="module">
+import { cv, g, W, H, FONT, loadImages, post } from './engine.js';
+import { SHOTS, IMAGES, RANGE, prepare } from './sample.js';
+
+const ready = Promise.all([
+  loadImages('../art/sample', IMAGES),
+  document.fonts.load(`60px ${FONT.hand}`), document.fonts.load(`60px ${FONT.print}`),
+]).then(prepare);
+function draw(t) {
+  g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.globalCompositeOperation = 'source-over';
+  g.fillStyle = '#000'; g.fillRect(0, 0, W, H);
+  const shot = SHOTS.find((s) => t >= s.a && t < s.b);
+  if (shot) { g.save(); shot.draw(t, (t - shot.a) / (shot.b - shot.a), t - shot.a); g.restore(); post(Math.round(t * 60), shot.post); }
+  return shot ? shot.id : '';
+}
+window.MV = {
+  ready,
+  info: () => ({ shots: SHOTS.length, range: RANGE, images: IMAGES.length }),
+  frame(t, mime = 'image/jpeg', q = 0.95) { draw(t); return cv.toDataURL(mime, q).split(',')[1]; },
+  draw,
+};
+// preview in a normal browser: index.html?t=104.6
+const t = new URLSearchParams(location.search).get('t');
+if (t !== null) ready.then(() => { draw(Number(t)); document.title = 'ready'; });
+</script>
